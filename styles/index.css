@@ -1,0 +1,58 @@
+body {
+    background-color: aquamarine;
+}
+
+#smile {
+    transition: 1s linear d;
+}
+
+#menu:hover #smile {
+    d: path("M10,50 13.5,52.5  17.5,53.5  21.5,54.5  25,55   28.5, 54.5  32.5,53.5  36.25,52.5 40,50z"
+        );
+}
+
+#eye1,
+#eye2 {
+    transition: transform 0.4s ease;
+}
+
+body,button {
+    font-family: "Bubblegum Sans";
+}
+
+#playBtn {
+    font-family: "Bubblegum Sans";
+    z-index: 10;
+    height: 130px;
+    width: 130px;
+    border-radius: 75px;
+    background-color: rgb(255, 255, 255, 0.2);
+    font-size: 40px;
+    padding: 7px;
+    border: 2px solid rgb(255, 255, 255, 0.35);
+    transition: font-size 0.15s linear, transform 0.15s linear;
+}
+
+#playBtn:active,#playBtn:focus {
+    color: white;
+    border: 0px solid red;
+    background-image: url('./assets/bomb.png');
+    background-color: transparent;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#playBtn:hover {
+    font-size: 45px;
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+body {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 90vh;
+    align-items: center;
+}

@@ -1,0 +1,114 @@
+body {
+    font-family: "Bubblegum Sans";
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#box {
+    aspect-ratio: 1040 / 560;
+    overflow: hidden;
+    background-color: aquamarine;
+    border: 2px solid red;
+    display: flex;
+    position: relative
+}
+
+#explosion {
+    height: 0px;
+    width: 0px;
+    transition: height 0.5s ease-in, width 0.5s ease-in;
+    display: none;
+    z-index: 100;
+}
+
+.shaking {
+    animation: shake 0.15s ease infinite;
+}
+
+.idle {
+    animation: shake 10s ease infinite;
+}
+
+.expanding {
+    animation: expand 1s linear infinite;
+}
+
+@keyframes shake {
+    10% {
+        transform: translate(-2px, 0);
+    }
+
+    25% {
+        transform: translate(-1px, -2px);
+    }
+
+    50% {
+        transform: translate(0, -1px);
+    }
+
+    75% {
+        transform: translate(2px, 1px);
+    }
+
+    90% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes expand {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05) translate(-4%, 0%);
+    }
+}
+
+.menupopup {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    background-color: rgb(191,255,234,0.6);
+    border: 2px black solid;
+    border-radius: 15px;
+    text-align: center;
+    padding: 15px;
+    z-index: 10;
+}
+
+.popupBtn {
+    color: rgb(0, 0, 240);
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.popupBtnDiv {
+    padding: 8px 8px 3px 8px;
+    margin:2px 2px 0px 0px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px rgba(100, 100, 100, 0) solid;
+    background-color: rgb(180,245,224,0.8);
+
+}
+.popupBtnDiv:hover {
+background-color: rgba(100, 100, 100, 0.2);
+border: 1px rgb(0,0,0) solid;
+}
+
+
+#roomId {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    pointer-events: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

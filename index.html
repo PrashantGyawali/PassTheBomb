@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <link href='./assets/bomb.png' rel='prefetch'>
+    <link href='./pages/menu.html' rel='prefetch'>
+    <link rel="stylesheet" href="./styles/index.css" >
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+</head>
+
+<body>
+    <button id="playBtn" onclick="setTimeout(()=>{window.location.href='./pages/menu.html'},50)"> Play</button>
+    <br>
+    <svg xmlns="http://www.w3.org/2000/svg" width="440px" height="440px" viewBox="-2 -1 54 62" id="menu"
+        style="z-index:1; position: absolute; animation: runaround 8s linear -1s infinite">
+        <circle r="30" cx="25" cy="30" stroke="black" stroke-width="1" stroke-linejoin="round" id="menubody"></circle>
+
+        <!-- eyes -->
+        <ellipse cx="7" cy="15" rx="8" ry="10" fill="white" stroke="black" stroke-width="1.5"></ellipse>
+        <ellipse cx="7" cy="15" rx="5" ry="5" class="idle" fill="black" id="eye1"></ellipse>
+
+        <ellipse cx="42" cy="15" rx="8" ry="10" fill="white" stroke="black" stroke-width="1.5"></ellipse>
+        <ellipse cx="42" cy="15" rx="5" ry="5" fill="black" class="idle" id="eye2"></ellipse>
+
+        <path d="M10,50 13.5,50 17.5,50 21.5,50  25,50   28.5,50  32.5,50  36.25,50 40,50z" fill="red" stroke="black"
+            stroke-linejoin="round" stroke-width="2" id="smile"></path>
+    </svg>
+
+    <script>
+        let eye1 = document.getElementById("eye1");
+        let eye2 = document.getElementById("eye2");
+        let smile = document.getElementById("smile");
+
+        let menu = document.getElementById("menubody");
+        let playBtn = document.getElementById("playBtn");
+
+        menu.style.fill = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
+
+        playBtn.onmouseenter = () => {
+            smile.setAttribute("d", "M10,50 13.5,52.5  17.5,53.5  21.5,54.5  25,55   28.5, 54.5  32.5,53.5  36.25,52.5 40,50z");
+        }
+        playBtn.onmouseleave = () => {
+            smile.setAttribute("d", "M10,50 13.5,50 17.5,50 21.5,50  25,50   28.5,50  32.5,50  36.25,50 40,50z");
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            let winh = window.innerHeight;
+            let winw = window.innerWidth;
+            const eye1Rect = eye1.getBoundingClientRect();
+            const eye2Rect = eye2.getBoundingClientRect();
+
+            const eye2CenterX = eye2Rect.left + eye2Rect.width / 2;
+            const eye2CenterY = eye2Rect.top + eye2Rect.height / 2;
+
+            const eye1CenterX = eye1Rect.left + eye1Rect.width / 2;
+            const eye1CenterY = eye1Rect.top + eye1Rect.height / 2;
+
+            eye2.style.transformOrigin = `center`;
+            eye1.style.transformOrigin = `center`;
+
+            if (e.clientX > eye1CenterX && e.clientX < eye2CenterX) {
+                eye2.style.transform = ` translateX(${(Math.pow(e.clientX, 0.45) - Math.pow(eye2CenterX, 0.45)) * 8 / Math.pow((eye2CenterX - eye1CenterX) / 3, 0.45)}px) translateY(${(Math.pow(e.clientY, 0.25) - Math.pow(eye2CenterY, 0.25)) * 12 / Math.pow(winh, 0.25)}px)`;
+                eye1.style.transform = ` translateX(${(Math.pow(e.clientX, 0.45) - Math.pow(eye1CenterX, 0.45)) * 8 / Math.pow((eye2CenterX - eye1CenterX) / 3, 0.45)}px) translateY(${(Math.pow(e.clientY, 0.25) - Math.pow(eye1CenterY, 0.25)) * 12 / Math.pow(winh, 0.25)}px)`;
+            }
+
+            else {
+                eye2.style.transform = ` translateX(${(Math.pow(e.clientX + 1, 0.25) - Math.pow(eye2CenterX, 0.25)) * 8 / Math.pow(winw, 0.25)}px) translateY(${(Math.pow(e.clientY + 1, 0.25) - Math.pow(eye2CenterY, 0.25)) * 12 / Math.pow(winh, 0.25)}px)`;
+                eye1.style.transform = ` translateX(${(Math.pow(e.clientX + 1, 0.25) - Math.pow(eye1CenterX, 0.25)) * 8 / Math.pow(winw, 0.25)}px) translateY(${(Math.pow(e.clientY + 1, 0.25) - Math.pow(eye1CenterY, 0.25)) * 12 / Math.pow(winh, 0.25)}px)`;
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>

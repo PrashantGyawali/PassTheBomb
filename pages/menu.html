@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/menu.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <script src="../scripts/menu.js" defer type="module"></script>
+
+    <title>Menu</title>
+    <style>
+
+    </style>
+</head>
+<body class="d-flex justify-content-center">  
+    <div class="card align-self-center d-flex" style="width: 700px; background-color: rgba(255,255,255,0.6); border-radius: 17px;">
+        <div class="card-body d-flex flex-column ">
+          <h5 class="card-title text-center h1">Play Game</h5>
+          <button  id="random" class="randomBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 70 70">
+                <rect x="10" y="10" width="50" height="50" rx="10" ry="10" fill="black" id="dice" />
+                <g id="face1">
+                    <circle cx="35" cy="35" r="3.5" fill="white" />
+                </g>
+                <g id="face2">
+                    <circle cx="25" cy="25" r="3.5" fill="white" />
+                    <circle cx="45" cy="45" r="3.5" fill="white" />
+                </g>
+                <g id="face3">
+                    <circle cx="25" cy="25" r="3.5" fill="white" />
+                    <circle cx="35" cy="35" r="3.5" fill="white" />
+                    <circle cx="45" cy="45" r="3.5" fill="white" />
+                </g>
+                <g id="face4">
+                    <circle cx="25" cy="25" r="3.5" fill="white" />
+                    <circle cx="25" cy="45" r="3.5" fill="white" />
+                    <circle cx="45" cy="25" r="3.5" fill="white" />
+                    <circle cx="45" cy="45" r="3.5" fill="white" />
+                </g>
+                <g id="face5">
+                    <circle cx="25" cy="25" r="3.5" fill="white" />
+                    <circle cx="25" cy="45" r="3.5" fill="white" />
+                    <circle cx="35" cy="35" r="3.5" fill="white" />
+                    <circle cx="45" cy="25" r="3.5" fill="white" />
+                    <circle cx="45" cy="45" r="3.5" fill="white" />
+                </g>
+                <g id="face6">
+                    <circle cx="25" cy="25" r="3.5" fill="white" />
+                    <circle cx="25" cy="35" r="3.5" fill="white" />
+                    <circle cx="25" cy="45" r="3.5" fill="white" />
+                    <circle cx="45" cy="25" r="3.5" fill="white" />
+                    <circle cx="45" cy="35" r="3.5" fill="white" />
+                    <circle cx="45" cy="45" r="3.5" fill="white" />
+                </g>
+                <g id="trail">
+                    <circle cx="25" cy="25" r="3.5" fill="white" />
+                       <circle cx="25" cy="35" r="3.5" fill="white" />
+                    <circle cx="25" cy="45" r="3.5" fill="white" />
+                    <circle cx="35" cy="35" r="3.5" fill="white" />
+                    <circle cx="45" cy="25" r="3.5" fill="white" />
+                      <circle cx="45" cy="35" r="3.5" fill="white" />
+                    <circle cx="45" cy="45" r="3.5" fill="white" />
+                </g>
+            </svg>
+            
+            Random</button>
+
+          <div class="d-flex joinDiv">
+                <input type="text" name="joinHost" id="joinHost" class="closed host inputFont"  placeholder="Host address">
+              <input type="text" name="joinId" id="joinId" class="closed id inputFont"  placeholder="Room Id">
+              <button id="joinBtn" class="flex-grow-1 text-nowrap joinBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="55" height="55">
+                    <!-- Radial gradient definition -->
+                    <defs>
+                        <radialGradient id="greenGradient1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                            <stop offset="0%" style="stop-color: #00FF00; stop-opacity: 0.2" />
+                            <stop offset="100%" style="stop-color: #00FF00; stop-opacity: 0.1" />
+                        </radialGradient>
+                        <radialGradient id="greenGradient2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                            <stop offset="0%" style="stop-color: #00FF00; stop-opacity: 0.3" />
+                            <stop offset="100%" style="stop-color: #00FF00; stop-opacity: 0.1" />
+                        </radialGradient>
+                        <radialGradient id="greenGradient3" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                            <stop offset="0%" style="stop-color: #00FF00; stop-opacity: 0.4" />
+                            <stop offset="100%" style="stop-color: #00FF00; stop-opacity: 0.1" />
+                        </radialGradient>
+            
+                        <radialGradient id="redFlicker" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                            <stop offset="0%" style="stop-color: #FF0000; stop-opacity: 0.5" />
+                            <stop offset="100%" style="stop-color: #FF0000; stop-opacity: 1" />
+                        </radialGradient>
+                    </defs>
+            
+                    <!-- Radar circles with gradients -->
+                    <circle cx="90" cy="90" r="37.5" fill="url(#greenGradient1)"  stroke="#00FF00" stroke-width="3"/>
+                    <circle cx="90" cy="90" r="60" fill="url(#greenGradient2)" stroke="#00FF00" stroke-width="3"/>
+                    <circle cx="90" cy="90" r="82.5" fill="url(#greenGradient3)" stroke="#00FF00" stroke-width="2"/>
+            
+                    <!-- Radar lines -->
+                    <line x1="90" y1="10" x2="90" y2="170" stroke="#02f202" stroke-width="2" />
+                    <line x1="10" y1="90" x2="170" y2="90" stroke="#02f202" stroke-width="2" />
+            
+                    <!-- Radar beam -->
+                    <line x1="90" y1="90" x2="170" y2="90" stroke="#00FF00" stroke-width="7" class="radarBeam"/>
+            
+                    <!-- Flickering red dots -->
+                    <circle cx="40" cy="150" r="7" fill="url(#redFlicker)" class="flickering-dot1" />
+                    <circle cx="135" cy="60" r="7" fill="url(#redFlicker)" class="flickering-dot2" />
+                    <circle cx="160" cy="110" r="7" fill="url(#redFlicker)" class="flickering-dot3" />
+                </svg>
+                
+                Join Room</button>
+          </div>
+
+          <div class="d-flex createDiv">
+            <input type="text" name="createHost" id="createHost" class="closed host inputFont"  placeholder="Host address">
+            <input type="text" name="createId" id="createId" class="closed id inputFont" placeholder="Room Id">
+            <input type="number" name="createMembers" min="2" max="6" id="createMembers" class="closed members inputFont" placeholder="Players">
+
+            <button id="createBtn" class="createBtn text-nowrap flex-grow-1">
+                <svg xml:space="preserve" viewBox="-20 -20 140 140" y="0" x="0" xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" id="hammer">
+                    <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="5" stroke="#333" fill="#BCC6CC" d="M80.839 44.252c1.945-9.979.73-16.916-8.024-22.138L58.328 13.75l-.366.634a3.973 3.973 0 0 1-5.427 1.454l-.724-.418a3.973 3.973 0 0 1-1.454-5.427h0l-6.519-3.764-8.991 15.574 6.519 3.764a3.973 3.973 0 0 1 5.427-1.454l.724.418a3.973 3.973 0 0 1 1.454 5.427l-.366.634 3.441 1.986-9.933 17.202 6.881 3.973 9.932-17.203 4.165 2.405 4.38-7.586c7.981 4.953 8.254 8.415 10.761 13.538.585 1.193 2.333.752 2.607-.655z"></path>
+                    <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="5" stroke="#333" fill="rgb(180,116,90)" d="M26.507 93.527l-7.233-4.176a1.825 1.825 0 0 1-.668-2.492l25.359-43.923a1.825 1.825 0 0 1 2.492-.668l7.233 4.176a1.825 1.825 0 0 1 .668 2.492L28.999 92.859a1.824 1.824 0 0 1-2.492.668z"></path>
+                </svg>
+                Create Room
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="55px" height="55px" viewBox="-2 -1 54 62" style="position: absolute; animation: runaround 8s linear infinite;" class="players">
+        <circle r="30" cx="25" cy="30" stroke="black" stroke-width="1" stroke-linejoin="round" fill="rgb(220,50,70)"></circle>
+    
+        <g class="bomb">
+            <!-- eyes -->
+            <ellipse cx="7" cy="15" rx="8" ry="10" fill="white" stroke="black" stroke-width="1.5"></ellipse>
+            <ellipse cx="7" cy="15" rx="5" ry="5" fill="black" class="shaking"></ellipse>
+    
+            <ellipse cx="42" cy="15" rx="8" ry="10" fill="white" stroke="black" stroke-width="1.5"></ellipse>
+            <ellipse cx="42" cy="15" rx="5" ry="5" fill="black" class="shaking"></ellipse>
+    
+    
+            <linearGradient id="bombGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: #333333"></stop>
+                <stop offset="30%" style="stop-color: #666666"></stop>
+                <stop offset="70%" style="stop-color: #666666"></stop>
+                <stop offset="100%" style="stop-color: #333333"></stop>
+            </linearGradient>
+            
+            <linearGradient id="bombGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: #171717"></stop>
+                <stop offset="30%" style="stop-color: #333333"></stop>
+                <stop offset="70%" style="stop-color: #333333"></stop>
+                <stop offset="100%" style="stop-color: #171717"></stop>
+            </linearGradient>
+            <polygon points="10.5,55 12,53 13.5,52.5 17.5,51.5 20.5,51 22.5,50.5 25,50 37.5,50.5 39.5,51 42.5,51.5 36.5,52.5 38,53 39.5,55" fill="red" stroke="black" stroke-linecap="round" stroke-width="2"></polygon>
+            
+            <path d="M32.5,10 Q17.5,0 25,40" fill="none" stroke="brown" stroke-width="2.5"></path>
+            <ellipse class="expanding" cx="25" cy="33.5" rx="12.5" ry="13.75" fill="url(#bombGradient)"></ellipse>
+            <ellipse class="expanding" cx="25" cy="33.5" rx="14.5" ry="15.75" fill="url(#bombGradient2)"></ellipse>
+            <polygon class="fire expanding" points="29.5,2.75 30.625,7.75 33.75,7.75 31.75,9.5 32.5,15.25 29.5,11.5 26.5,15.25 27.25,9.5 25.25,7.75 28.25,7.75" fill="rgb(255, 183, 0)" stroke="orange"></polygon>
+            
+            <!-- Left eyebrow -->
+            <polygon points="-5,10  -3,8   0,5   3,0   5,-5   5,-5   3,0   0,5   -3,8   -5,10" fill="none" stroke="black" stroke-width="4"></polygon>
+            <!-- Right eyebrow -->
+            <polygon points="55,10 53,8 50,5 47,0 45,-5 45,-5 47,0 50,5 53,8 55,10" fill="none" stroke="black" stroke-width="4"></polygon>
+        </g>
+    </svg>
+    
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="55px" height="55px" viewBox="-2 -1 54 62" class="players" style="position: absolute; animation: runaround 8s linear -1s infinite">
+    <circle r="30" cx="25" cy="30" stroke="black" stroke-width="1" stroke-linejoin="round" fill="rgb(15,150,70)"></circle>
+    
+        <!-- eyes -->
+        <ellipse cx="7" cy="15" rx="8" ry="10" fill="white" stroke="black" stroke-width="1.5"></ellipse>
+        <ellipse cx="7" cy="15" rx="5" ry="5" class="idle"  fill="black"></ellipse>
+
+        <ellipse cx="42" cy="15" rx="8" ry="10" fill="white" stroke="black" stroke-width="1.5"></ellipse>
+        <ellipse cx="42" cy="15" rx="5" ry="5" fill="black" class="idle"></ellipse>
+        
+        <polygon points="10,50 13.5,52.5  17.5,53.5 21.5,54.5  25,55   28.5, 54.5  32.5,53.5  36.25,52.5 40,50" fill="red" stroke="black" stroke-width="2"></polygon>
+    </svg>
+    <div id="error"></div>
+</body>
+
+
+</html>

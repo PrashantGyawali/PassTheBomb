@@ -1,0 +1,197 @@
+body,button{
+    font-family:"Bubblegum Sans";
+}
+
+body{
+    min-height:85vh;
+    background-color: rgb(140, 249, 213);
+}
+
+.closed{
+    box-sizing: border-box;
+    width:0px;
+    padding: 0px;
+    margin:0px;
+    transition: width 0.8s linear, border 0.8s linear;
+    pointer-events: none;
+    border:0px solid rgba(255, 255, 255, 0) !important;
+}
+.open{
+    box-sizing: border-box;
+    padding: 6px;
+    margin:0px;
+    border: 2px solid rgb(0, 0, 0) !important;
+    transition: width 0.8s linear, border 0.8s linear; 
+}
+.open.host{
+    width:250px;
+}
+.open.id{
+    width:120px;
+}
+.open.members{
+    width:100px; }
+
+.randomBtn{
+    background-color: #ffc107;
+    font-size: 1.7em;
+    font-weight: 600;
+}
+.createBtn{
+    font-size: 1.7em;
+    font-weight: 600;
+}
+.joinBtn{
+    font-size: 1.7em;
+    background-color: rgb(217, 69, 254);
+    font-weight: 600;
+}
+#createId,#createHost,#createMembers{
+    background-color: rgb(248, 248, 248); }
+
+#joinId,#joinHost{
+    background-color: rgb(220, 94, 251);
+}
+#createMembers.open{ min-width: 40px !important; }
+
+#joinId::placeholder,#joinHost::placeholder{
+    color:rgb(50, 50, 50);
+    padding:10px;
+}
+#createMembers::placeholder{
+    padding:0px !important;
+}
+
+.randomBtn:active, .randomBtn:focus{
+    box-shadow:0 0 0 4px #ffc107;
+}
+
+.createDiv:has(.open), .createDiv:has(.open), .createMembers:has(.open){
+    box-shadow:0 0 0 4px rgb(208, 208, 208);
+}
+.joinDiv:has(.open), .joinDivhas:has(.open){
+    box-shadow:0 0 0 4px rgb(220, 94, 251);
+}
+
+#trail{animation:trail 24s infinite;}
+#dice{animation:rotatio2 24s infinite;}
+#face6{animation:rotatio 72s infinite;animation-delay:-12s;}
+#face5{animation:rotatio 72s infinite;animation-delay:-48s}
+#face4{animation:rotatio 72s infinite;animation-delay:-36s}
+#face2{animation:rotatio 72s infinite;animation-delay:-60s}
+#face3{animation:rotatio 72s infinite;}
+#face1{animation:rotatio 72s infinite;animation-delay:-24s}
+@keyframes rotatio{
+0%{transform:   translate(50%,50%) rotate(0deg) translate(-50%,-50%); opacity:1;}
+5.5%{transform:   translate(50%,50%) rotate(3000deg) translate(-50%,-50%); opacity:0.3;}
+11%{transform: translate(50%,50%) rotate(6000deg) translate(-50%,-50%); opacity:0;}
+16.5%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+22.5%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+28%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+33%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+39%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+44.5%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+50%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+55.5%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+61%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+66.5%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+61%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+72%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+77.5%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+83%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0;}
+88.55%{transform:   translate(50%,50%) rotate(-6000deg) translate(-50%,-50%); opacity:0;}
+94.1%{transform:   translate(50%,50%) rotate(-3000deg) translate(-50%,-50%); opacity:0.3;}
+100%{transform:   translate(50%,50%) rotate(0deg) translate(-50%,-50%); opacity:1;}
+}
+@keyframes rotatio2{
+0%{transform:   translate(50%,50%) rotate(0deg) translate(-50%,-50%);}
+50%{transform:   translate(50%,50%) rotate(1800deg) translate(-50%,-50%);}
+100%{transform:   translate(50%,50%) rotate(3600deg) translate(-50%,-50%);}
+}
+
+@keyframes trail{
+0%{transform:   translate(50%,50%) rotate(-14400deg) translate(-50%,-50%);opacity:0;}
+25%{transform:   translate(50%,50%) rotate(-72000deg) translate(-50%,-50%);opacity:0.4;}
+50%{transform:   translate(50%,50%) rotate(0deg) translate(-50%,-50%);opacity:0;}  
+75%{transform:   translate(50%,50%) rotate(7200deg) translate(-50%,-50%); opacity:0.4}
+100%{transform:   translate(50%,50%) rotate(14400deg) translate(-50%,-50%);opacity:0;}
+}
+
+#hammer{
+animation:hammer 0.65s infinite;
+}
+@keyframes hammer{
+30%{transform:translate(-10%,-10%) rotate(-10deg) translate(10%,10%);}
+50%{transform:translate(20%,20%) rotate(-90deg) translate(-20%,-20%);}
+70%{transform:translate(-10%,-10%) rotate(-10deg) translate(10%,10%);}
+}
+
+.inputFont{
+font-size: 18px;;
+}
+
+.radarBeam{ animation:radar 2s infinite;}
+
+@keyframes radar{
+0%{transform:translate(50%,50%) rotate(0deg)  translate(-50%,-50%);}
+100%{transform: translate(50%,50%) rotate(360deg) translate(-50%,-50%);}
+}
+
+.flickering-dot1 {
+    animation: flicker 2s linear infinite;
+    animation-delay: 0.5s;}
+.flickering-dot2 {
+animation: flicker 2s linear infinite;
+animation-delay: 0.1s;
+}
+.flickering-dot3 {
+animation: flicker 2s linear infinite;
+animation-delay: 0.3s;
+}
+@keyframes flicker {
+0%, 100% {opacity: 0;}
+35% {opacity: 1;}
+65% {opacity: 1;}
+}
+
+@keyframes runaround{
+0%{top:0%;left:1%;}
+25%{top:0%;left:99%; transform: translateX(-100%);}
+50%{top:99%;left:99%;transform: translate(-100%,-100%);}
+75%{top:99%;left:1%; transform: translateY(-100%);}
+100%{top:0%;left:1%}
+}
+
+    .shaking {
+        animation: shake 0.15s ease infinite;
+    }
+
+    .idle{
+        animation: shake 10s ease infinite;
+    }
+    .expanding{
+        animation: expand 1s linear infinite;
+    }
+    
+    @keyframes shake {
+        10% { transform: translate(-2px, 0); }
+        25% { transform: translate(-1px, -2px); }
+        50% { transform: translate(0, -1px); }
+        75% { transform: translate(2px, 1px); }
+        90% { transform: translate(0, 0); }
+    }
+
+    @keyframes expand {
+        0% { transform: scale(1); }
+        50%{ transform:scale(1.09) translate(-4%,0%); }
+    }
+
+    #error{
+        font-size: 20px;
+        font-family: "Bubblegum Sans";
+        font-weight: bold;
+        color:red;
+        justify-self: center;
+        align-self: flex-end;
+        position:absolute;
+    }
