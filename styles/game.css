@@ -3,6 +3,7 @@ body {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    overflow: hidden;
 }
 
 #box {
@@ -11,7 +12,7 @@ body {
     background-color: aquamarine;
     border: 2px solid red;
     display: flex;
-    position: relative
+    position: absolute;
 }
 
 #explosion {

@@ -14,7 +14,11 @@ let resolutionRatio=1;
     console.log("await complete");
     ws.send("initialConnect");
 
-    selfIdReturner.then((resolvedData)=>{const{selfId,roomId}=resolvedData;  console.log(resolvedData,selfId,roomId); initializedInputs(selfId,roomId);});
+    selfIdReturner.then((resolvedData)=>{
+        const{selfId,roomId}=resolvedData;
+        // console.log(resolvedData,selfId,roomId);
+        initializedInputs(selfId,roomId);
+    });
     
     function initializedInputs(resolvedselfPlayerId,selfRoomId){
         let m=document.getElementById("box");
@@ -129,7 +133,7 @@ let resolutionRatio=1;
                 //if someone else is sending the click event then check if we are colliding with them
                 if((selfId!=messagedata.sender)&&(messagedata.sender==bomberId))
                 {
-                    console.log(messagedata.sender,selfId)
+                    // console.log(messagedata.sender,selfId)
                     let senderCursor=document.querySelector(`[data-sender='${messagedata.sender}']`);
                     let selfCursor=document.querySelector(`[data-sender='${selfId}']`);
 
@@ -139,7 +143,7 @@ let resolutionRatio=1;
                         let senderCursorPosition=senderCursor.getBoundingClientRect();
                         if(distance(selfCursorPosition,senderCursorPosition)<(messagedata.radius+selfRadius)*resolutionRatio)
                         {
-                            console.log("verifying bomber to self")
+                            console.log("Bomber = Self")
                             ws.send(JSON.stringify({type:"bomberVerify",newBomber:selfId}));
                         }
                     } 
@@ -183,14 +187,13 @@ let resolutionRatio=1;
                 const notbomb = bombercursor.querySelector('.notBomb');
                 notbomb.style.display="none";
             }
-            console.log("bomberinited:",bomberId);           
+            console.log("bomber initiated:",bomberId);           
         }
 
 
         if(messagedata.type=="bomberKill")
         {
             let bombercursor=document.querySelector(`[data-sender='${messagedata.bomber}']`);
-            console.log(bombercursor);
             if(bomberId && bombercursor)
             {
                 const explosion = document.querySelector('#explosion');
@@ -219,7 +222,6 @@ let resolutionRatio=1;
 
         if(messagedata.type=="gameEnd")
         {
-            console.log("tsese");
             window.location.href="../pages/menu.html";
         }
     }
@@ -269,7 +271,7 @@ function getOrCreatecursor(messagebody,bomberId)
             notbomb.style.display="none";
         }
 
-        document.body.appendChild(cursor);
+        document.getElementById("box").appendChild(cursor);
         return cursor;
     }
 }
@@ -301,9 +303,6 @@ async function connectToServer()
         return new Promise((resolve,reject)=>{
             let t=setInterval(()=>{
             if(ws.readyState===1){
-                // alert("Connection established");
-                // let username=prompt("Write username");
-                // let messageobj={"username":username};
                 let messageobj={username:"ram"};
                 ws.send(JSON.stringify(messageobj));
                 clearInterval(t);
