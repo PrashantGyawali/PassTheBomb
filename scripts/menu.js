@@ -15,9 +15,14 @@ let createBtnOpen = false;
 
 randomBtn.addEventListener("click", async (e) => {
     e.stopPropagation();
-    let response = await fetch("http://localhost:5000/status", { method: "GET" });
+    let response = await fetch("https://passthebomb-server.onrender.com/status", {
+        method: "GET", headers: new Headers({
+            "Bypass-Tunnel-Reminder": true
+        })
+    });
     if (response.status == 200) {
-        localStorage.setItem("socket-url", "ws://localhost:5000/ws");
+        window.location.href = "./game.html";
+        sessionStorage.setItem("socket-url", "wss://passthebomb-server.onrender.com/type=join");
     }
 })
 
