@@ -1,4 +1,16 @@
 let resolutionRatio=1;
+
+//bgmusic
+let gameMusic=new Audio("../assets/gamemusic.mp3");
+let loseMusic=new Audio("../assets/lose.wav");
+let winMusic=new Audio("../assets/victory.mp3");
+let explosionMusic=new Audio("../assets/explosion.wav");
+
+gameMusic.loop=true;
+gameMusic.volume=0.4;
+gameMusic.play();
+
+
 (async function()
 {
     let teleporting=false, teleportingTimer;
@@ -205,19 +217,23 @@ let resolutionRatio=1;
 
                 deleteCursor({sender:messagedata.bomber},otherplayersId);
                 setTimeout(()=>{explosion.style.display="none";
-                                 deleteCursor({sender:messagedata.bomber},otherplayersId); },1000);
+                                deleteCursor({sender:messagedata.bomber},otherplayersId); },1000);
             }
-            console.log("bomberkilled:",messagedata.bomber);           
+            console.log("bomberkilled:",messagedata.bomber);
+            explosionMusic.play();      
         }
 
         if(messagedata.type=="win")
         {
             document.getElementById("WinMenuPopUp").style.display="flex";
+            winMusic.play();
         }
 
         if(messagedata.type=="dead")
         {
             document.getElementById("DeadMenuPopUp").style.display="flex";
+            gameMusic.pause();
+            loseMusic.play();
         }
 
         if(messagedata.type=="gameEnd")
@@ -299,7 +315,6 @@ async function connectToServer()
 
         ws=new WebSocket(socketUrl);
         ws.onerror=()=>{ws=new WebSocket("ws"+socketUrl.slice(3));};
-              
         return new Promise((resolve,reject)=>{
             let t=setInterval(()=>{
             if(ws.readyState===1){

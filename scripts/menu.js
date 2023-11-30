@@ -12,6 +12,13 @@ let createMembers = document.getElementById("createMembers");
 let joinBtnOpen = false;
 let createBtnOpen = false;
 
+let menumusic=new Audio("../assets/menu.wav");
+menumusic.loop=true;
+menumusic.playbackRate=0.85;
+menumusic.volume=0.4;
+menumusic.play();
+
+
 
 randomBtn.addEventListener("click", async (e) => {
     e.stopPropagation();

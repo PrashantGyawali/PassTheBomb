@@ -35,6 +35,18 @@
     </svg>
 
     <script>
+        let menuaudio=new Audio("./assets/menu.wav");
+        menuaudio.loop=true;
+        menuaudio.volume=0.4;
+
+
+        addEventListener("click",audioplayerFn);
+        function audioplayerFn(){
+            menuaudio.playbackRate=0.7;
+            menuaudio.play();
+            removeEventListener("click",audioplayerFn);
+        }
+
         let eye1 = document.getElementById("eye1");
         let eye2 = document.getElementById("eye2");
         let smile = document.getElementById("smile");
