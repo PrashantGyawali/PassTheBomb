@@ -233,7 +233,8 @@ gameMusic.play();
         {
             document.getElementById("DeadMenuPopUp").style.display="flex";
             gameMusic.pause();
-            loseMusic.play();
+            setTimeout(()=>{loseMusic.play();},1000);
+            
         }
 
         if(messagedata.type=="gameEnd")
