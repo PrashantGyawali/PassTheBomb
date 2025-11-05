@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, user-scalable=no">
@@ -19,16 +20,27 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
     <link rel="manifest" href="../site.webmanifest">
 
-   <title>Game</title>
+    <title>Game</title>
 
 </head>
-<body  >
+
+<body>
     <div id="box">
-    <div id="roomId"></div>
+        <div id="playerCount" style="position:absolute;right:10px;
+           font-size:18px;color:rgb(0, 0, 0);">
+            Waiting for players...
+        </div>
+        <div id="bomberNotice" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
+            color:rgb(0, 0, 0); font-size:20px; font-weight:bold; text-shadow:0 0 8px rgb(255, 255, 255);">
+            You have the bomb! Pass it quickly to others 💣
+        </div>
+
+        <div id="roomId"></div>
         <template id="cursor">
 
-            <svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" viewBox="-2 -1 54 62" style="position: absolute;pointer-events:none" class="players">
-                <circle r="30" cx="25" cy="30" stroke="black" stroke-width="1" stroke-linejoin="round" ></circle>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" viewBox="-2 -10 54 82"
+            style="position: absolute;pointer-events:none" class="players">
+                <circle r="30" cx="25" cy="30" stroke="black" stroke-width="1" stroke-linejoin="round"></circle>
 
                 <g class="bomb">
                     <!-- eyes -->
@@ -51,21 +63,29 @@
                         <stop offset="70%" style="stop-color: #333333"></stop>
                         <stop offset="100%" style="stop-color: #171717"></stop>
                     </linearGradient>
-                    <polygon points="10.5,55 12,53 13.5,52.5 17.5,51.5 20.5,51 22.5,50.5 25,50 37.5,50.5 39.5,51 42.5,51.5 36.5,52.5 38,53 39.5,55" fill="red" stroke="black" stroke-linecap="round" stroke-width="2"></polygon>
-                    
-                    <path d="M32.5,10 Q17.5,0 25,40" fill="none" stroke="brown" stroke-width="2.5"></path>
-                    <ellipse class="expanding" cx="25" cy="33.5" rx="12.5" ry="13.75" fill="url(#bombGradient)"></ellipse>
-                    <ellipse class="expanding" cx="25" cy="33.5" rx="14.5" ry="15.75" fill="url(#bombGradient2)"></ellipse>
-                    <polygon class="fire expanding" points="29.5,2.75 30.625,7.75 33.75,7.75 31.75,9.5 32.5,15.25 29.5,11.5 26.5,15.25 27.25,9.5 25.25,7.75 28.25,7.75" fill="rgb(255, 183, 0)" stroke="orange"></polygon>
-                    
-                    <!-- Left eyebrow -->
-                    <polygon points="-5,10  -3,8   0,5   3,0   5,-5   5,-5   3,0   0,5   -3,8   -5,10" fill="none" stroke="black" stroke-width="4"></polygon>
+                    <polygon
+                        points="10.5,55 12,53 13.5,52.5 17.5,51.5 20.5,51 22.5,50.5 25,50 37.5,50.5 39.5,51 42.5,51.5 36.5,52.5 38,53 39.5,55"
+                        fill="red" stroke="black" stroke-linecap="round" stroke-width="2"></polygon>
+
+                        <path d="M32.5,10 Q17.5,0 25,40" fill="none" stroke="brown" stroke-width="2.5"></path>
+                        <ellipse class="expanding" cx="25" cy="33.5" rx="12.5" ry="13.75" fill="url(#bombGradient)">
+                    </ellipse>
+                    <ellipse class="expanding" cx="25" cy="33.5" rx="14.5" ry="15.75" fill="url(#bombGradient2)">
+                    </ellipse>
+                    <polygon class="fire expanding"
+                        points="29.5,2.75 30.625,7.75 33.75,7.75 31.75,9.5 32.5,15.25 29.5,11.5 26.5,15.25 27.25,9.5 25.25,7.75 28.25,7.75"
+                        fill="rgb(255, 183, 0)" stroke="orange"></polygon>
+
+                        <!-- Left eyebrow -->
+                    <polygon points="-5,10  -3,8   0,5   3,0   5,-5   5,-5   3,0   0,5   -3,8   -5,10" fill="none"
+                    stroke="black" stroke-width="4"></polygon>
                     <!-- Right eyebrow -->
-                    <polygon points="55,10 53,8 50,5 47,0 45,-5 45,-5 47,0 50,5 53,8 55,10" fill="none" stroke="black" stroke-width="4"></polygon>
-
-
+                    <polygon points="55,10 53,8 50,5 47,0 45,-5 45,-5 47,0 50,5 53,8 55,10" fill="none" stroke="black"
+                    stroke-width="4"></polygon>
+                    
+                    
                 </g>
-
+                
                 <g class="notBomb">
                     <!-- eyes -->
                     <ellipse cx="7" cy="15" rx="8" ry="10" fill="white" stroke="black" stroke-width="1.5"></ellipse>
@@ -74,14 +94,19 @@
                     <ellipse cx="42" cy="15" rx="8" ry="10" fill="white" stroke="black" stroke-width="1.5"></ellipse>
                     <ellipse cx="42" cy="15" rx="5" ry="5" fill="black" class="idle"></ellipse>
                     
-                    <polygon points="10,50 13.5,52.5  17.5,53.5 21.5,54.5  25,55   28.5, 54.5  32.5,53.5  36.25,52.5 40,50" fill="red" stroke="black" stroke-width="2"></polygon>
-                </g>
-            </svg>        
-
+                    <polygon
+                        points="10,50 13.5,52.5  17.5,53.5 21.5,54.5  25,55   28.5, 54.5  32.5,53.5  36.25,52.5 40,50"
+                        fill="red" stroke="black" stroke-width="2"></polygon>
+                    </g>
+                    <text class="you" x="25" y="70" text-anchor="middle" fill="black" font-family="'Bubblegum Sans', sans-serif" font-size="14" pointer-events="none">
+                        You
+                    </text>
+                </svg>
+                
         </template>
-
+        
         <img src="../assets/boom.png" alt="" srcset="" style="position: absolute;" id="explosion">
-
+        
         <div class="menupopup" id="DeadMenuPopUp">
             <div style="font-size: 40px;">!! You died !!</div>
             <div style="display:flex">
@@ -101,6 +126,7 @@
                 <a href="./menu.html" class="popupBtn" id="gameEnd">Go back</a>
             </div>
         </div>
-        </div>
+    </div>
 </body>
+
 </html>
