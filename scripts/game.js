@@ -19,7 +19,7 @@ let gameStatus;
     let selfIdReturner = new Promise((resolve, reject) => { resolveSelfId = resolve });
     let otherplayersId = {};
     let bomberId;
-    let selfpos={x:0,y:0}
+    let selfpos = { x: 0, y: 0 }
     let timers = {}
 
     const ws = await connectToServer();
@@ -263,9 +263,13 @@ function getOrCreatecursor(messagebody, bomberId) {
     let cursor = document.querySelector(`[data-sender='${messagebody.sender}']`);
     const isSelf = selfId && messagebody.sender == selfId;
     if (cursor) {
-        if(isSelf){
+        if (isSelf) {
             const youText = cursor.querySelector('.you');
             youText.style.display = "block";
+        }
+        else {
+            const youText = cursor.querySelector('.you');
+            youText.style.display = "none";
         }
 
         if (bomberId && messagebody.sender == bomberId) {
@@ -294,7 +298,15 @@ function getOrCreatecursor(messagebody, bomberId) {
 
         const bomb = cursor.querySelector('.bomb');
         const notbomb = cursor.querySelector('.notBomb');
-        const youText = cursor.querySelector('.you-text');
+
+        if (isSelf) {
+            const youText = cursor.querySelector('.you');
+            youText.style.display = "block";
+        }
+        else {
+            const youText = cursor.querySelector('.you');
+            youText.style.display = "none";
+        }
 
         bomb.style.display = "none";
         notbomb.style.display = "block";
